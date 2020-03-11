@@ -1,8 +1,6 @@
 import xlrd
 import pyautogui as gui
-import pytesseract  # as i2t
-import cv2
-pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files/Tesseract-OCR/tesseract.exe"
+
 # reading the entire file
 loc = "./Inventory Transfer Sheet-2.0.xls"
 wb = xlrd.open_workbook(loc)
@@ -57,24 +55,9 @@ def enterPartNumber(string):
     gui.hotkey("tab")
 
 
-# this is the transfer to textbox button
-# transfer_to_textbox = gui.locateOnScreen(
-#     "./inventory_transfer_screen_images/a to bin textbox.PNG", confidence=0.9)
-# transfer_to_textbox_left_adjustment = 100
-# transfer_to_textbox_top_adjustment = 68
-# transfer_to_textbox_x = transfer_to_textbox.left + \
-#     transfer_to_textbox_left_adjustment
-# transfer_to_textbox_y = transfer_to_textbox.top + \
-#     transfer_to_textbox_top_adjustment
 
 
-# this is the GSS spreadsheet
-# spreadsheet = gui.locateOnScreen(
-#     "./inventory_transfer_screen_images/Gss spreadsheet transfer.PNG", confidence=0.9)
-# spreadsheet_left_adjustment = 100
-# spreadsheet_top_adjustment = 100
-# spreadsheet_x = spreadsheet_left_adjustment + spreadsheet.left
-# spreadsheet_y = spreadsheet_top_adjustment + spreadsheet.top
+
 
 
 # this ist he transfer fromm button
