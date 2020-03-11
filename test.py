@@ -1,3 +1,12 @@
+#TODO
+# make sure it ends when there are no more part numbers 
+# general error checking like if the part is not foud just go to the next 
+# and at the end give me the ones that were not found
+#^^^ that's kinda done 
+#now I need mto test this on real data and jsut test this somemore 
+# because I'm not trying to look like I'm dumb
+
+
 import xlrd
 import pyautogui as gui
 
@@ -127,6 +136,8 @@ for i in range(where_to_start, sheet.nrows):
     # I wish object destructuring was a thing python
     row = sheet.row_values(i)
     part = row[gss_part]
+    if(part == ""):
+        continue
     part_current_location = row[coming_from]
     destination = row[going_to]
     quantity = row[qty]
