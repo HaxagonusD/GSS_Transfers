@@ -1,9 +1,9 @@
-#TODO
-# make sure it ends when there are no more part numbers 
-# general error checking like if the part is not foud just go to the next 
+# TODO
+# make sure it ends when there are no more part numbers
+# general error checking like if the part is not foud just go to the next
 # and at the end give me the ones that were not found
-#^^^ that's kinda done 
-#now I need mto test this on real data and jsut test this somemore 
+# ^^^ that's kinda done
+# now I need mto test this on real data and jsut test this somemore
 # because I'm not trying to look like I'm dumb
 
 
@@ -30,7 +30,6 @@ received_by = 9
 # Start the script
 # for every row in the spreadsheet do this
 where_to_start = 5
-
 
 
 # Computer vision time
@@ -62,11 +61,6 @@ def enterPartNumber(string):
     gui.hotkey("backspace")
     gui.write(string)
     gui.hotkey("tab")
-
-
-
-
-
 
 
 # this ist he transfer fromm button
@@ -101,7 +95,6 @@ def enterDestinationBin(location):
     gui.hotkey("tab")
 
 
-
 def enterTransferQuantity(number):
     transfer_bar = gui.locateOnScreen(
         "./inventory_transfer_screen_images/transfer quantity.PNG")
@@ -116,7 +109,7 @@ def enterTransferQuantity(number):
     gui.hotkey('tab')
 
 
-# this is the transfer button    
+# this is the transfer button
 def clickOnTransferButton():
     button = gui.locateOnScreen(
         "./inventory_transfer_screen_images/transfer bar.PNG")
@@ -124,14 +117,23 @@ def clickOnTransferButton():
     button_top_adjustment = 15
     button_x = button_left_adjustment + button.left
     button_y = button_top_adjustment + button.top
-    gui.moveTo(button_x,button_y)
+    gui.moveTo(button_x, button_y)
     gui.click()
 
-    
+
+def clickOnSelected():
+    retrieve = gui.locateOnScreen(
+        "./inventory_transfer_screen_images/all the retrieves.PNG")
+    retrieve_left_adjustment = 150
+    retrieve_top_adjustment = 15
+    retrieve_x = retrieve_left_adjustment + retrieve.left
+    retrieve_y = retrieve_top_adjustment + retrieve.top
+    gui.moveTo(retrieve_x, retrieve_y)
+    gui.click()
 
 
 for i in range(where_to_start, sheet.nrows):
-    
+
     # get relevant information
     # I wish object destructuring was a thing python
     row = sheet.row_values(i)
@@ -147,5 +149,3 @@ for i in range(where_to_start, sheet.nrows):
     enterDestinationBin(destination)
     enterTransferQuantity(quantity)
     clickOnTransferButton()
-
-
